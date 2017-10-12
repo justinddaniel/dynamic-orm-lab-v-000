@@ -59,15 +59,13 @@ class InteractiveRecord
     value = ""
     attribute.each do |k, v|
       key = k
-      if v.is_a? Integer
-        value = v
-      else
-        value = v
-        value = value.to_s
-      end
+      value = v
     end
-    binding.pry
-    sql = "SELECT * FROM #{self.table_name} WHERE #{key} = #{value}"
+    if value.is_a? String
+      sql = "SELECT * FROM #{self.table_name} WHERE #{key} = '#{value}'"
+    else 
+      sql = "SELECT * FROM #{self.table_name} WHERE #{key} = #{value}"
+    end
     DB[:conn].execute(sql)
   end
 
