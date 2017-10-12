@@ -58,7 +58,12 @@ class InteractiveRecord
     value = ""
     attribute.each do |k, v|
       key = k
-      value = v
+      if v.is_a? INTEGER
+        value = v
+      else 
+        value = v
+        value.to_s
+      end
     end
     sql = "SELECT * FROM #{self.table_name} WHERE #{key} = #{value}"
     DB[:conn].execute(sql)
