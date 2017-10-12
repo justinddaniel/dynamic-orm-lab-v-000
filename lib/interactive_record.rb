@@ -60,7 +60,7 @@ class InteractiveRecord
       key = k
       if v.is_a? INTEGER
         value = v
-      else 
+      else
         value = v
         value.to_s
       end
