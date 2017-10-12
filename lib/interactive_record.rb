@@ -58,7 +58,7 @@ class InteractiveRecord
     value = ""
     attribute.each do |k, v|
       key = k
-      if v.is_a? INTEGER
+      if v.is_a? Integer 
         value = v
       else
         value = v
