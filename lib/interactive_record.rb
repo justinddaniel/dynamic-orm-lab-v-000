@@ -63,7 +63,7 @@ class InteractiveRecord
     end
     if value.is_a? String
       sql = "SELECT * FROM #{self.table_name} WHERE #{key} = '#{value}'"
-    else 
+    else
       sql = "SELECT * FROM #{self.table_name} WHERE #{key} = #{value}"
     end
     DB[:conn].execute(sql)
