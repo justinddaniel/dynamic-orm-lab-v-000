@@ -62,7 +62,7 @@ class InteractiveRecord
         value = v
       else
         value = v
-        value.to_s
+        value = value.to_s
       end
     end
     sql = "SELECT * FROM #{self.table_name} WHERE #{key} = #{value}"
